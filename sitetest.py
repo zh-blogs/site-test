@@ -8,13 +8,13 @@ headers = {
 with open('data.json', 'r', encoding='utf8') as json_file:
     json_data = json.load(json_file)
     
-for index in range(len(json_data["data"])):
-    print("Checking:", json_data["data"][index]["url"], end = " ")
+for index in range(len(json_data["data"]["blogs"])):
+    print("Checking:", json_data["data"]["blogs"][index]["url"], end = " ")
     try:
-        res = requests.get(json_data["data"][index]["url"], timeout=5, headers=headers)
+        res = requests.get(json_data["data"]["blogs"][index]["url"], timeout=5, headers=headers)
         if res.status_code != 200:
-            json_data["data"][index]["status"] = res.status_code
+            json_data["data"]["blogs"][index]["status"] = res.status_code
             print("[", res.status_code,"]")
     except Exception as e:
-        json_data[index]["status"] = str(type(e)).split("'")[1].split(".")[2]
-        print("[", json_data["data"][index]["status"],"]")
+        json_data["data"]["blogs"][index]["status"] = str(type(e)).split("'")[1].split(".")[2]
+        print("[", json_data["data"]["blogs"][index]["status"],"]")
