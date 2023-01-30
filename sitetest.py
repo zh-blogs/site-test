@@ -12,9 +12,7 @@ for index in range(len(json_data)):
     print("Checking:", json_data["data"][index]["url"], end = " ")
     try:
         res = requests.get(json_data["data"][index]["url"], timeout=5, headers=headers)
-        if res.status_code == 200:
-        
-        else:
+        if res.status_code != 200:
             json_data["data"][index]["status"] = res.status_code
             print("[", res.status_code,"]")
     except Exception as e:
