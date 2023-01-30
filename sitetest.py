@@ -9,7 +9,6 @@ with open('data.json', 'r', encoding='utf8') as json_file:
     json_data = json.load(json_file)
     
 for index in range(len(json_data["data"]["blogs"])):
-    print("Checking:", json_data["data"]["blogs"][index]["url"], end = " ")
     try:
         res = requests.get(json_data["data"]["blogs"][index]["url"], timeout=5, headers=headers)
         if res.status_code != 200:
