@@ -5,7 +5,7 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36"
 }
 
-with open('https://zhblogs.ohyee.cc/api/blogs', 'r', encoding='utf8') as json_file:
+with open('data.json', 'r', encoding='utf8') as json_file:
     json_data = json.load(json_file)
     
 for index in range(len(json_data)):
